@@ -1,0 +1,25 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="container">
+
+        <div class="row">
+            {% for post in post_list %}
+            <div class="col-md-4">
+                <a href="{{ post.get_absolute_url }}" >{{ post.title|title }}</a>
+                <p>
+                    {{ post.content|truncatechars:50 }}
+                </p>
+                <p>
+                    <a class="btn btn-secondary" href="{{ post.get_absolute_url }}">Подробней</a>
+                </p>
+            </div>
+            {% endfor %}
+
+
+
+        </div>
+
+    </div>
+{% endblock main %}

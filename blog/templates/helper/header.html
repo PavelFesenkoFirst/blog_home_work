@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="{% url 'blog_home_work:index' %}">Interesting Stories</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog_home_work:post-list' %}">Все посты</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'blog_home_work:rubric-list' %}" id="dropdown01"
+                data->Рубрики</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog_home_work:author-list' %}">Авторы</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mr-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog_home_work:post-create' %}">Создать пост</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ user.get_absolute_url }}">Личный кабинет</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:logout' %}">выйти</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:login' %}">войти</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:register' %}">зарегистрироваться</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

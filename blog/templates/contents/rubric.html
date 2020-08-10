@@ -1,0 +1,21 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h3 class="border-bottom border-dark pb-2 mb-0">Все доступные публикации данной рубрики</h3>
+            <h2>{{ rubric.rubric_name|title }}</h2>
+        <div class="text-muted pt-3">
+            {% for posto in rubric.rubric.all %}
+                {% if posto.show_rubric == True%}
+                    <p class="media-body pb-3 mb-0 small border-bottom border-dark">
+                        <strong class="d-block text-dark"><a href="{{ posto.get_absolute_url }}">{{ posto.title }}</a></strong>
+                        <div>----- Данная стать содержит {{ posto.post.count }} коментариев</div>
+                        <div>----- Данная стать содержит {{ posto.view_rubric }} просмотров</div>
+
+                    </p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock main %}

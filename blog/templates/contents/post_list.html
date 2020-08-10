@@ -1,0 +1,31 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h3 class="border-bottom border-dark pb-2 mb-0">Все доступные публикации данной рубрики</h3>
+    <h2>{{ rubric.rubric_name|title }}</h2>
+    <div class="text-muted pt-3">
+        {% for posts in posts_list %}
+        <p class="media-body pb-3 mb-0 small border-bottom border-dark">
+            <strong class="d-block text-dark"><a class="btn btn-secondary" href="{{ posts.get_absolute_url }}">{{ posts.title }}</a></strong>
+            <div class="card-body">
+                <p class="card-text">{{ posts.author_id }}</p>
+            </div>
+        </p>
+        {% endfor %}
+    </div>
+
+    {% if is_paginated %}
+        <div class="text-center">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-secondary">prev</a>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-success">next</a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock main %}
+

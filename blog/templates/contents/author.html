@@ -1,0 +1,19 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block main %}
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md px-0">
+            {% for foo in author_info %}
+                <h1 class="display-3 font-italic text-center">{{ foo.name }} {{ foo.surname }}</h1>
+                <h1 class="display-4 font-italic text-center">{{ foo.email }}</h1>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="lead">
+        <h3 class="text-xl-left">Количество просмотров статей: {{ total_post }} </h3>
+        {{ foo.author.view_rubric.count }}
+        <h3 class="text-xl-left">Количество постов: {{ post_author }}</h3>
+        <h3 class="text-xl-left">Количество коментариев: {{ comment_author }}</h3>
+        <h2>Дата последней публикации: {{ last.date_publication }}</h2>
+    </div>
+{% endblock main %}

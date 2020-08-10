@@ -1,0 +1,27 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interesting Stories</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+    <header class="blog-header py-5">
+        {% include 'blog_home_work/../helper/header.html' %}
+    </header>
+
+    <main class="container">
+        {% block main %}
+        {% endblock main %}
+    </main>
+
+    <footer class="container">
+        {% include 'blog_home_work/../helper/footer.html' %}
+    </footer>
+</body>
+</html>

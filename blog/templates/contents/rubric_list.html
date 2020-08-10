@@ -1,0 +1,29 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block main %}
+<form class="form-inline mt-2 mt-md-0">
+    <div>
+        <input id="search" class="form-control mr-sm-2" name="search" type="search" placeholder="Поиск по рубрикам" required>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+    </div>
+</form>
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h3 class="border-bottom border-dark pb-2 mb-0">Все доступные публикации данной рубрики</h3>
+    <h2>{{ rubric.rubric_name|title }}</h2>
+    <div class="text-muted pt-3">
+        {% for rubric in rubric_list %}
+        <p class="media-body pb-3 mb-0 small border-bottom border-dark">
+            <strong class="d-block text-dark">{{ rubric.rubric_name|title }}</strong>
+            <div class="card-body">
+                <h6>Количество статьей в данной рубрике {{ rubric.rubric.count }}</h6> <form class="form-inline mt-2 mt-md-0">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a class="btn btn-secondary" href="{{ rubric.get_absolute_url }}">Подробнее</a></button>
+            </form>
+
+
+            </div>
+        </p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock main %}

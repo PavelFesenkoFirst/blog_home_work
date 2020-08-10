@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">submit</button>
+        <button type="button" href="{{ confirm_list.email_user }}" >Повторно отправить email</button>
+    </form>
+
+{% endblock %}

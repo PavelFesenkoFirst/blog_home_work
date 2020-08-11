@@ -141,8 +141,8 @@ AUTHENTICATION_BACKENDS = ('apps.users.backends.AuthModelBackend',)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'truemewmoonkloom@gmail.com'
-EMAIL_HOST_PASSWORD = 'q71631990W6151e'
+EMAIL_HOST_USER = 'iteadjangotest@gmail.com'
+EMAIL_HOST_PASSWORD = 'ITe@pass'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
